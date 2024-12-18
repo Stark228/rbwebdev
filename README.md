@@ -1,5 +1,5 @@
-### Learning Web Development in Ruby
-# Contain
+# Learning Web Development in Ruby
+### Contain
 1. Ruby
 2. Client-Server Architecture
 3. Domain name
