@@ -17,7 +17,6 @@
      - predicate method
      - undef
      - alias
-   * Function
    * Variable (a, @a, @@a, $a, A)
      - local variable
      - intance variable
