@@ -24,6 +24,7 @@
      - class variable
      - global variable
      - constant
+   * Module
    * Include, prepend, require
    * Access control
      - public
@@ -42,8 +43,24 @@
 3. Client-Server Architecture
 4. Domain name
 5. HTTP request & reponse
-6. Web server & Application server
-7. HTTP cookies
+   - webrick
+   - rack
+   - sinatra
+   - puma
+7. Web server & Application server
+8. Storage
+   - local storage
+   - session storage
+   - cache storage
+   - Indexed DB
+   - prvate state token
+10. HTTP cookies
+   * signed cookies / unsigned cookies
+   * persistence cookies / session cookies / zombie cookies
+   * first-party / third-party cookies
+   * secure cookies / HttpOnly cookies
+   * SameSite Attribute
+11. Cache
    
 
 
