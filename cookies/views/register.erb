@@ -1,0 +1,24 @@
+<!-- views/register.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+  <h1>Register</h1>
+
+  <% if @error %>
+    <p style="color: red;"><%= @error %></p>
+  <% end %>
+
+  <form action="/register" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <input type="submit" value="Register">
+  </form>
+</body>
+</html>
