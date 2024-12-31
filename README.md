@@ -1,185 +1,193 @@
 # Learning Web Development in Ruby
+
 ### Content
-1. Ruby
-   * Mise : A environment manager to handle multiple programming languages and its versions.
 
-   * Bundler : A dependency manager for Ruby projects to ensure consistent gem versions.
+1. **Ruby**
+   - **Mise**: An environment manager to handle multiple programming languages and their versions.
+   - **Bundler**: A dependency manager for Ruby projects to ensure consistent gem versions.
+   - **Gem**: Ruby libraries packaged for distribution; managed with the `gem` command.
 
-   * Gem : Ruby libraries packaged for distribution; managed with the gem command.
+   - **Class**: Defines the blueprint for objects.
+     - **Inheritance**: Enables classes to inherit behavior from parent classes. e.g., `ruby/vihicle.rb`
+     - **Constructor**: The `initialize` method, called automatically when creating an object. e.g., `ruby/person.rb`
+     - **Getter and Setter**: Methods to access or modify object attributes; can use `attr_accessor`. e.g., `ruby/book.rb`
+     - **Singleton**: Ensures a class has only one instance. e.g., `singlerb`
+     - **Super()**: Calls the method of the same name from the parent class. e.g., `ruby/shape.rb`
+     - **Self**: Refers to the current instance or class context. e.g., `ruby/self.rb`
 
-   * Class
-      Defines the blueprint for objects.
-     - inheritance : Enables classes to inherit behavior from     parent classes. eg. ruby/vihicle.rb
-     - contructor : The initialize method, called automatically when creating an object. eg. ruby/person.rb
-     - getter and setter : Methods to access or modify object attributes; can use attr_accessor. eg. ruby/book.rb
-     - Singleton :  Ensures a class has only one instance. eg. singlerb
-     - Super() : Calls the method of the same name from the parent class. eg. ruby/shape.rb
-     - Self : Refers to the current instance or class context. eg. ruby/self.rb
+   - **Object**: An instance of a class, encapsulating data and methods.
 
-   * Object : An instance of a class, encapsulating data and methods.
+   - **Method**: Reusable code blocks defined with `def`.
+     - **Bang Method**: Ends with `!`, indicating it modifies the caller. Used for raising errors. e.g., `ruby/b.rb`
+     - **Predicate Method**: Ends with `?`, returning a boolean.
+     - **Undef**: Removes a method from a class or module.
+     - **Alias**: Creates a new name for an existing method.
+     - **Missing Method**: Handles undefined methods dynamically using `method_missing`.
 
-   * Method : Reusable code blocks defined with def.
-     - bang method : Ends with !, indicating it modifies the caller. use for raising the error. eg. ruby/b.rb
-     - predicate method : Ends with ?, returning a boolean.
-     - undef : Removes a method from a class or module.
-     - alias : : Creates a new name for an existing method.
-     - missing method : Handles undefined methods dynamically using method_missing.
+   - **Variable** (`a`, `@a`, `@@a`, `$a`, `A`):
+     - **Local Variable**: Scoped within a block or method.
+     - **Instance Variable**: Scoped to an object instance.
+     - **Class Variable**: Shared across a class and its instances.
+     - **Global Variable**: Available everywhere.
+     - **Constant**: Immutable variables with global scope.
+       e.g., `ruby/Car.rb`
 
-   * Variable (a, @a, @@a, $a, A)
-     - local variable : Scoped within a block or method.
-     - intance variable : Scoped to an object instance.
-     - class variable : Shared across a class and its instances.
-     - global variable : Available everywhere.
-     - constant : Immutable variables with global scope.
-     eg. ruby/Car.rb
+   - **Module**: A collection of methods and constants, used for mixins and namespaces. e.g., `ruby/greet.rb`
 
-   * Module : A collection of methods and constants, used for mixins and namespaces. eg. ruby/greet.rb
+     - **Include**: Mixes module methods into a class.
+     - **Prepend**: Adds module methods before existing methods.
+     - **Require**: Loads external libraries or Ruby files.
 
-   * Include: Mixes module methods into a class.
-   * Prepend: Adds module methods before existing methods.
-   * Require: Loads external libraries or Ruby files.
+   - **Access Control**:
+     - **Public**: Accessible from anywhere.
+     - **Private**: Accessible only within the defining class.
+     - **Protected**: Accessible by instances of the same class or subclasses.
+       e.g., `ruby/ac.rb`
 
-   * Access control
-     - public : Accessible from anywhere.
-     - private : Accessible only within the defining class.
-     - protected : Accessible by instances of the same class or subclasses.
-     eg. ruby/ac.rb
+   - **Hash**:
+     - **Symbol vs String in Hash**: Symbols are immutable and memory-efficient for keys, while strings are mutable. Access accordingly to how you define them.
 
-   * hash
-     - symbol vs string in hash : Symbols are immutable and memory-efficient for keys while string are mutable. access accordingly to how you define.
-   
-   * Block: Anonymous code passed to a method. eg. ruby/block.rb
-   * Lambda: A stricter anonymous function.
-   * Proc: Similar to a lambda but less strict with arguments.
+   - **Block**: Anonymous code passed to a method. e.g., `ruby/block.rb`
+   - **Lambda**: A stricter anonymous function.
+   - **Proc**: Similar to a lambda but less strict with arguments.
 
-   * downto / upto : Iterators for decrementing/incrementing in loops. eg. 5.downto(1)
-   * if / unless : Conditional expressions;
-   * while / until : Looping constructs; 
-   * $LOAD_PATH << "." : Adds a directory to Ruby's library search path.
-   * next: Skip to the next iteration.
-   * break: Exit the loop.
-   * redo: Restart the current iteration.
-   * retry: Retry the entire loop (deprecated).
-   * raise: Raise an exception.
+   - **Iterators**:
+     - `downto` / `upto`: For decrementing/incrementing in loops. e.g., `5.downto(1)`
+     - **Conditionals**:
+       - `if` / `unless`: Conditional expressions.
+       - `while` / `until`: Looping constructs.
+     - `$LOAD_PATH << "."`: Adds a directory to Ruby's library search path.
 
-   * exception handling
-     - begin : Code that might raise an exception
-     - rescue ExceptionType => variable : Code to handle the exception
-     - else : Code to execute if no exception occurs
-     - ensure : Code that will always execute (e.g., cleanup)
+   - **Control Flow**:
+     - `next`: Skip to the next iteration.
+     - `break`: Exit the loop.
+     - `redo`: Restart the current iteration.
+     - `retry`: Retry the entire loop (deprecated).
+     - `raise`: Raise an exception.
 
-3. Client-Server Architecture : A model where clients (browsers) request resources from servers, which process and return responses. Client and Server communicate with same protocol to understand each other. Most common protocol is http. They are connected via TCP network. eg. client-server
+   - **Exception Handling**:
+     - `begin`: Code that might raise an exception.
+     - `rescue ExceptionType => variable`: Code to handle the exception.
+     - `else`: Code to execute if no exception occurs.
+     - `ensure`: Code that will always execute (e.g., cleanup).
 
-4. Domain name : A human-readable address (e.g., example.com) that maps to an IP address for accessing websites.
+3. **Client-Server Architecture**: A model where clients (browsers) request resources from servers, which process and return responses. Client and Server communicate with the same protocol to understand each other. The most common protocol is HTTP. They are connected via a TCP network. e.g., `client-server`.
 
-5. HTTP request & reponse
-  * webrick : A Ruby web server library. eg. webrick-server
-  * rack : A Ruby library that interfaces web servers with frameworks like Sinatra. eg. simple-framework
-  * sinatra : A lightweight web application framework. eg. cookies
-  * puma : A high-performance Ruby web server.
+4. **Domain Name**: A human-readable address (e.g., `example.com`) that maps to an IP address for accessing websites.
 
-7. Web server : Handles HTTP requests (e.g., NGINX, Apache).
-8. Application server : Runs application logic and processes data (e.g., Puma, Unicorn).
+5. **HTTP Request & Response**:
+   - **WEBrick**: A Ruby web server library. e.g., `webrick-server`.
+   - **Rack**: A Ruby library that interfaces web servers with frameworks like Sinatra. e.g., `simple-framework`.
+   - **Sinatra**: A lightweight web application framework. e.g., `cookies`.
+   - **Puma**: A high-performance Ruby web server.
 
-<img src="diagrams/full_client-server_architecture.png" alt="My Local Image"/>
+7. **Web Server**: Handles HTTP requests (e.g., NGINX, Apache).
+8. **Application Server**: Runs application logic and processes data (e.g., Puma, Unicorn).
 
-   * When we enter the url in browser, Browser will identify domain name from url and start to resolve its ip address. 
-   * First it will check browser's DNS cache. Retrieve ip address of domain if it has a previous record.
-   * If not found, browser will search in os DNS cache
-   * else, final solution is to get from ISP. Check ISP DNS cache
-   * Else, IPS will using powerful tool called DNS resolver. It will perform recursive DNS query to DNS server such as root server and authority server.
-   * After getting ip address, it will connect via tcp network with host with specfic port creating a socket each side.
-   * After Successfully establishing tcp connection, http request is send.
-   * request is handle by web server, public assets like image, css, and static html are redirectly send by web server as http response if the request is asking for it.
-   * else, dynamic requirement are forward to application server in reverse proxy request which will return http reponse. 
+<img src="diagrams/full_client-server_architecture.png" alt="Client-Server Architecture"/>
 
-8. Storage
-  * Local Storage: Persistent key-value storage in the browser.
-  * Session Storage: Temporary key-value storage per browser tab.
-  * Cache Storage: Stores HTTP responses for offline or faster access.
-  * Indexed DB: A low-level database for structured data in browsers.
-  * Private State Token: Stores private, origin-specific client data.
+   - **URL Resolution Process**:
+     - The browser identifies the domain name from the URL and starts resolving its IP address.
+     - First, it checks the browser's DNS cache for a previous record.
+     - If not found, it searches the OS DNS cache.
+     - If still not found, it queries the ISP DNS cache.
+     - Finally, the ISP uses a DNS resolver to perform a recursive DNS query to DNS servers (e.g., root server, authority server).
+     - After obtaining the IP address, it connects via a TCP network with the host using a specific port, creating a socket on each side.
+     - After successfully establishing the TCP connection, the HTTP request is sent.
+     - The web server handles the request:
+       - Public assets like images, CSS, and static HTML are directly sent as HTTP responses.
+       - Dynamic requirements are forwarded to the application server as reverse proxy requests, which return an HTTP response.
 
-10. HTTP cookies
-  * Signed vs Unsigned Cookies: Signed cookies ensure integrity using a cryptographic signature.
-  * Persistent vs Session Cookies: Persistent cookies have an expiration date; session cookies last until the browser closes.
-  * Zombie Cookies: Persistent cookies that regenerate after deletion.
-  * First-Party vs Third-Party Cookies: First-party cookies belong to the site you're visiting; third-party cookies come from external domains.
-  * Secure Cookies: Transmitted only over HTTPS.
-  * HttpOnly Cookies: Inaccessible to JavaScript for security.
-  * SameSite Attribute: Restricts cross-site cookie behavior (Strict, Lax, None).
-  <img src="diagrams/cookies.png" alt="My Local Image"/>
+8. **Storage**:
+   - **Local Storage**: Persistent key-value storage in the browser.
+   - **Session Storage**: Temporary key-value storage per browser tab.
+   - **Cache Storage**: Stores HTTP responses for offline or faster access.
+   - **Indexed DB**: A low-level database for structured data in browsers.
+   - **Private State Token**: Stores private, origin-specific client data.
 
-  * when http request is receive by server it response http with set cookies.
-  * It will set cookies in browser, session cookies will be stored in ram and persistent will be stored in dist. According to users perference, cookies will get value and in next http request, modified cookies will be send to server.
-  * Server will check cookies and response according to user's value in cookies.
-  * Optionally values of cookies are stored for future analysis which is not much common.
+10. **HTTP Cookies**:
+   - **Signed vs Unsigned Cookies**: Signed cookies ensure integrity using a cryptographic signature.
+   - **Persistent vs Session Cookies**: Persistent cookies have an expiration date; session cookies last until the browser closes.
+   - **Zombie Cookies**: Persistent cookies that regenerate after deletion.
+   - **First-Party vs Third-Party Cookies**: First-party cookies belong to the site you're visiting; third-party cookies come from external domains.
+   - **Secure Cookies**: Transmitted only over HTTPS.
+   - **HttpOnly Cookies**: Inaccessible to JavaScript for security.
+   - **SameSite Attribute**: Restricts cross-site cookie behavior (Strict, Lax, None).
 
-11. **REST API**
-- **Definition**: REST (Representational State Transfer) is an architectural style that uses standard HTTP methods to interact with resources.
-- **Resource-based**: Each endpoint represents a specific resource (e.g., `/users`, `/posts`).
-- **Fixed Data Structure**: Responses are predefined and might return more or less data than needed.
-- **Multiple Requests**: Fetching nested or related data often requires multiple requests.
-- **Caching**: Built-in HTTP caching mechanisms are straightforward to implement.
+<img src="diagrams/cookies.png" alt="Cookies Diagram"/>
 
-### **Advantages**
-- Simpler to implement.
-- Standardized and widely adopted.
-- Works well with traditional RESTful systems.
+   - **How Cookies Work**:
+     - When an HTTP request is received by the server, it responds with HTTP and sets cookies.
+     - Session cookies are stored in RAM, while persistent cookies are stored on disk.
+     - According to user preferences, cookies store values that are sent in subsequent HTTP requests.
+     - The server checks the cookies and responds according to the user's value in the cookies.
+     - Optionally, cookie values are stored for future analysis, though this is less common.
 
-### **Disadvantages**
-- Over-fetching or under-fetching data.
-- Endpoints can become bloated with multiple versions or special cases.
+11. **REST API**:
+   - **Definition**: REST (Representational State Transfer) is an architectural style that uses standard HTTP methods to interact with resources.
+   - **Resource-based**: Each endpoint represents a specific resource (e.g., `/users`, `/posts`).
+   - **Fixed Data Structure**: Responses are predefined and might return more or less data than needed.
+   - **Multiple Requests**: Fetching nested or related data often requires multiple requests.
+   - **Caching**: Built-in HTTP caching mechanisms are straightforward to implement.
 
----
+   ### **Advantages**:
+   - Simpler to implement.
+   - Standardized and widely adopted.
+   - Works well with traditional RESTful systems.
 
-## **GraphQL**
-- **Definition**: GraphQL is a query language for APIs that allows clients to request exactly the data they need.
-- **Single Endpoint**: Typically uses one endpoint (e.g., `/graphql`).
-- **Customizable Queries**: Clients specify what data they need, avoiding over-fetching or under-fetching.
-- **Nested Data**: Easily retrieves related or nested data in a single query.
-- **No Built-in Caching**: Requires manual implementation or third-party libraries for caching.
-
-### **Advantages**
-- Flexible and efficient data retrieval.
-- Reduces the number of API requests.
-- Self-documenting through introspection.
-
-### **Disadvantages**
-- More complex to implement.
-- Requires additional tools for features like caching and rate-limiting.
+   ### **Disadvantages**:
+   - Over-fetching or under-fetching data.
+   - Endpoints can become bloated with multiple versions or special cases.
 
 ---
 
-12. **Authentication and Authorization**
+12. **GraphQL**:
+   - **Definition**: GraphQL is a query language for APIs that allows clients to request exactly the data they need.
+   - **Single Endpoint**: Typically uses one endpoint (e.g., `/graphql`).
+   - **Customizable Queries**: Clients specify what data they need, avoiding over-fetching or under-fetching.
+   - **Nested Data**: Easily retrieves related or nested data in a single query.
+   - **No Built-in Caching**: Requires manual implementation or third-party libraries for caching.
 
-## **Authentication**
-- **Definition**: Verifying the identity of a user or system.
-- **Common Methods**:
-  - Username and password.
-  - Token-based (e.g., JSON Web Tokens - JWT).
-  - OAuth/OAuth2 (e.g., Google or Facebook login).
-  - API Keys.
+   ### **Advantages**:
+   - Flexible and efficient data retrieval.
+   - Reduces the number of API requests.
+   - Self-documenting through introspection.
 
-### **Best Practices**
-- Use HTTPS to secure credentials.
-- Store passwords using hashing algorithms like bcrypt.
-- Implement multi-factor authentication (MFA).
-- Expire and rotate tokens regularly.
+   ### **Disadvantages**:
+   - More complex to implement.
+   - Requires additional tools for features like caching and rate-limiting.
 
 ---
 
-## **Authorization**
-- **Definition**: Determining what actions a user or system is allowed to perform.
-- **Examples**:
-  - Role-based access control (RBAC).
-  - Attribute-based access control (ABAC).
-  - Permission levels (e.g., Admin, User, Guest).
+12. **Authentication and Authorization**:
 
-### **Best Practices**
-- Follow the principle of least privilege.
-- Use middleware to enforce authorization logic.
-- Keep authorization checks server-side to avoid client manipulation.
+   ## **Authentication**
+   - **Definition**: Verifying the identity of a user or system.
+   - **Common Methods**:
+     - Username and password.
+     - Token-based (e.g., JSON Web Tokens - JWT).
+     - OAuth/OAuth2 (e.g., Google or Facebook login).
+     - API Keys.
+
+   ### **Best Practices**:
+   - Use HTTPS to secure credentials.
+   - Store passwords using hashing algorithms like bcrypt.
+   - Implement multi-factor authentication (MFA).
+   - Expire and rotate tokens regularly.
+
+---
+
+   ## **Authorization**
+   - **Definition**: Determining what actions a user or system is allowed to perform.
+   - **Examples**:
+     - Role-based access control (RBAC).
+     - Attribute-based access control (ABAC).
+     - Permission levels (e.g., Admin, User, Guest).
+
+   ### **Best Practices**:
+   - Follow the principle of least privilege.
+   - Use middleware to enforce authorization logic.
+   - Keep authorization checks server-side to avoid client manipulation.
 
 ---
 
