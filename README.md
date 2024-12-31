@@ -115,5 +115,78 @@
   * Server will check cookies and response according to user's value in cookies.
   * Optionally values of cookies are stored for future analysis which is not much common.
 
-11. REST api vs GraphQL
-12. Authentication and Authorization
+11. **REST API**
+- **Definition**: REST (Representational State Transfer) is an architectural style that uses standard HTTP methods to interact with resources.
+- **Resource-based**: Each endpoint represents a specific resource (e.g., `/users`, `/posts`).
+- **Fixed Data Structure**: Responses are predefined and might return more or less data than needed.
+- **Multiple Requests**: Fetching nested or related data often requires multiple requests.
+- **Caching**: Built-in HTTP caching mechanisms are straightforward to implement.
+
+### **Advantages**
+- Simpler to implement.
+- Standardized and widely adopted.
+- Works well with traditional RESTful systems.
+
+### **Disadvantages**
+- Over-fetching or under-fetching data.
+- Endpoints can become bloated with multiple versions or special cases.
+
+---
+
+## **GraphQL**
+- **Definition**: GraphQL is a query language for APIs that allows clients to request exactly the data they need.
+- **Single Endpoint**: Typically uses one endpoint (e.g., `/graphql`).
+- **Customizable Queries**: Clients specify what data they need, avoiding over-fetching or under-fetching.
+- **Nested Data**: Easily retrieves related or nested data in a single query.
+- **No Built-in Caching**: Requires manual implementation or third-party libraries for caching.
+
+### **Advantages**
+- Flexible and efficient data retrieval.
+- Reduces the number of API requests.
+- Self-documenting through introspection.
+
+### **Disadvantages**
+- More complex to implement.
+- Requires additional tools for features like caching and rate-limiting.
+
+---
+
+12. **Authentication and Authorization**
+
+## **Authentication**
+- **Definition**: Verifying the identity of a user or system.
+- **Common Methods**:
+  - Username and password.
+  - Token-based (e.g., JSON Web Tokens - JWT).
+  - OAuth/OAuth2 (e.g., Google or Facebook login).
+  - API Keys.
+
+### **Best Practices**
+- Use HTTPS to secure credentials.
+- Store passwords using hashing algorithms like bcrypt.
+- Implement multi-factor authentication (MFA).
+- Expire and rotate tokens regularly.
+
+---
+
+## **Authorization**
+- **Definition**: Determining what actions a user or system is allowed to perform.
+- **Examples**:
+  - Role-based access control (RBAC).
+  - Attribute-based access control (ABAC).
+  - Permission levels (e.g., Admin, User, Guest).
+
+### **Best Practices**
+- Follow the principle of least privilege.
+- Use middleware to enforce authorization logic.
+- Keep authorization checks server-side to avoid client manipulation.
+
+---
+
+### **Authentication vs Authorization**
+| Feature          | Authentication                   | Authorization                  |
+|------------------|----------------------------------|---------------------------------|
+| **Definition**   | Verifies identity of the user.   | Determines user permissions.   |
+| **Purpose**      | "Who are you?"                  | "What are you allowed to do?" |
+| **Sequence**     | Comes first.                     | Comes after authentication.    |
+
