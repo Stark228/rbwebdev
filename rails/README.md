@@ -68,9 +68,11 @@ $ rails s
 ```
 $ rails g model User name:string password_digest:string
 ```
+
 ```
 $ rails g model UserProduct name:string:index brand:string data:json user:references:index --primary-key-type=uuid --skip-migration
 ```
+
 ```
 def change
     create_table :user_products do |t|
@@ -268,33 +270,33 @@ end
 ```
 Options:
 - `greater_than`: Ensures the value is strictly greater than a given number.
-  ```ruby
+  ```
   validates :price, numericality: { greater_than: 0 }
   ```
 - `greater_than_or_equal_to`: Ensures the value is greater than or equal to a given number.
-  ```ruby
+  ```
   validates :age, numericality: { greater_than_or_equal_to: 18 }
   ```
 - `less_than`: Ensures the value is strictly less than a given number.
-  ```ruby
+  ```
   validates :discount, numericality: { less_than: 1.0 }
   ```
 - `less_than_or_equal_to`: Ensures the value is less than or equal to a given number.
-  ```ruby
+  ```
   validates :seats, numericality: { less_than_or_equal_to: 100 }
   ```
 - `odd`: Ensures the value is an odd number.
-  ```ruby
+  ```
   validates :position, numericality: { odd: true }
   ```
 - `even`: Ensures the value is an even number.
-  ```ruby
+  ```
   validates :level, numericality: { even: true }
   ```
 
 ### Format
 Validates an attribute against a regular expression.
-```ruby
+```
 class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
@@ -302,7 +304,7 @@ end
 
 ### Inclusion/Exclusion
 Validates inclusion or exclusion of a value in a given set.
-```ruby
+```
 class User < ApplicationRecord
   validates :role, inclusion: { in: %w(admin user guest) }
   validates :username, exclusion: { in: %w(admin superuser) }
@@ -311,7 +313,7 @@ end
 
 ### Acceptance
 Used for boolean-like fields (e.g., terms of service agreement).
-```ruby
+```
 class User < ApplicationRecord
   validates :terms_of_service, acceptance: true
 end
@@ -319,7 +321,7 @@ end
 
 ### Confirmation
 Ensures two fields match (e.g., `password` and `password_confirmation`).
-```ruby
+```
 class User < ApplicationRecord
   validates :password, confirmation: true
 end
@@ -329,7 +331,7 @@ end
 
 ## Custom Validations
 You can define custom validations within the model.
-```ruby
+```
 class User < ApplicationRecord
   validate :email_domain_check
 
@@ -347,7 +349,7 @@ end
 
 ## Conditional Validations
 Run validations only under certain conditions.
-```ruby
+```
 class User < ApplicationRecord
   validates :password, presence: true, if: :password_required?
 
@@ -379,14 +381,14 @@ Options:
 ---
 
 ### Using `on`
-```ruby
+```
 class Order < ApplicationRecord
   validates :credit_card_number, presence: true, on: :create
 end
 ```
 
 ### Custom Validation with Conditional Logic
-```ruby
+```
 class Product < ApplicationRecord
   validate :expiration_date_cannot_be_in_the_past, if: :expiration_date_present?
 
